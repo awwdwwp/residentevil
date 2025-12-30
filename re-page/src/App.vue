@@ -51,7 +51,9 @@ export default {
 
       if(to.path.startsWith('/lineup')) {
         this.backgroundImage = 'https://game.capcom.com/residentevil/pc/img/lineup/bg-lineup.jpg'
-      } else {
+      } else if (to.path.startsWith('/characters')) {
+        this.backgroundImage = 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/characters_bg.webp'
+      }else {
         this.backgroundImage = 'https://game.capcom.com/residentevil/pc/img/about/history/bg_history.jpg'
       }
     }

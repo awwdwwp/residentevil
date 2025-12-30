@@ -19,7 +19,7 @@
               <v-card-text class="text-subtitle-1">
                 RESIDENT EVIL PORTAL<br>
               </v-card-text>
-              <v-btn color="primary" style="border-radius: 0px;" @click="$router.push('/games')">
+              <v-btn color="primary" style="border-radius: 0px;" @click="$router.push('/about')">
             More
         </v-btn>
             </v-card>
@@ -56,6 +56,40 @@ export default {
     .about-card {
   background: rgba(0,0,0,0.7);
   color: white;
+  height: 280px;
+  border-radius: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.158);
+}
+.v-btn {
+  -webkit-text-size-adjust: 100%;
+  visibility: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  outline: none;
+
+
+  justify-content: center;
+  align-items: center;
+
+  width: 220px;
+  height: 50px;
+  background: #930912;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+  transition: background 0.3s;
+  position: relative;
+
+  cursor: pointer;
+}
+
+
+.v-btn:hover {
+  background: #b50d19;
 }
 
 </style>

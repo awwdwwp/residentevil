@@ -2,6 +2,9 @@
     <v-container class="my-10">
         <div class="d-flex justify-space-between align-center mb-4">
             <h2 class="section-title">Characters</h2>
+            <v-btn  color="primary" class=" btn" @click="toggleImages">
+                Change Pictures {{ previewIndex+1 }}/2
+            </v-btn>
             <v-btn class="btn" @click="$router.push('/characters')">
                 More
             </v-btn>
@@ -15,7 +18,7 @@
             sm="6"
             md="4">
             <v-card class="preview-card" elevation="6">
-                <v-img :src="char.image" height="250" style="object-position: top;" cover referrerpolicy="no-referrer"></v-img>
+                <v-img :src="char.images[previewIndex]" height="250" style="object-position: top;" cover referrerpolicy="no-referrer"></v-img>
                 
                 <v-card-title>{{ char.name }}</v-card-title>
                 <v-card-text>
@@ -39,12 +42,19 @@ import {useCharacterStore} from '@/stores/characterStore'
 export default {
     name:"CharactersSection",
     data() {
-        return {}
+        return {
+            previewIndex:0
+        }
     },
     computed: {
         charactersSection() {
             const store = useCharacterStore()
             return store.previewCharacters
+        }
+    },
+    methods: {
+        toggleImages() {
+            this.previewIndex = this.previewIndex === 0 ? 1 : 0
         }
     }
 }

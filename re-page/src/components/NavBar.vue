@@ -27,6 +27,7 @@ export default {
 
 <style scoped>
 .nav-btn {
+    border-radius: 0px;
   color: white;
   font-weight: lighter;
   font-family: "Oswald", sans-serif;
