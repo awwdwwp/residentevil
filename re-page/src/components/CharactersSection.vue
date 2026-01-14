@@ -2,12 +2,12 @@
     <v-container class="my-10">
         <div class="d-flex justify-space-between align-center mb-4">
             <h2 class="section-title">Characters</h2>
-            <v-btn  color="primary" class=" btn" @click="toggleImages">
-                Change Pictures {{ previewIndex+1 }}/2
-            </v-btn>
-            <v-btn class="btn" @click="$router.push('/characters')">
-                More
-            </v-btn>
+            <ThemedButton color="primary" @click="toggleImages">
+              Change Pictures {{ previewIndex+1 }}/2
+            </ThemedButton>
+            <ThemedButton color="surface" @click="$router.push('/characters')">
+              More
+            </ThemedButton>
         </div>
 
         <v-row>
@@ -26,7 +26,7 @@
                 </v-card-text>
 
                 <v-card-actions>
-                    <v-btn variant="text" color="red" @click="$router.push('characters')">
+                    <v-btn variant="text" color="accent" @click="$router.push('characters')">
                         Details
                     </v-btn>
                 </v-card-actions>
@@ -38,9 +38,11 @@
 
 <script lang="ts">
 import {useCharacterStore} from '@/stores/characterStore'
+import ThemedButton from './ThemedButton.vue';
 
 export default {
     name:"CharactersSection",
+    components: {ThemedButton},
     data() {
         return {
             previewIndex:0
@@ -80,32 +82,6 @@ h2 {
     line-height: 1;
     letter-spacing: 0.05em;
     font-weight: 400;
-}
-.btn {
- margin: 0;
-  padding: 0;
-  border: 1px solid red;
-  border-radius: 0px;
-  font: inherit;
-  vertical-align: baseline;
-  text-decoration: none;
-  outline: none;
-  justify-content: center;
-  align-items: center;
-  width: 220px !important;
-  height: 50px !important;
-  background: #24010546;
-  color: #ff0000;
-  font-size: 14px;
-  letter-spacing: 0.05rem;
-  transition: background 0.3s;
-  position: relative;
-
-  cursor: pointer;
-}
-
-.btn:hover {
-    background: #70000894;
 }
 .v-card-title, .v-card-text {
     font-family: 'Oswald', sans-serif; 

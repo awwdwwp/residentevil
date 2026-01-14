@@ -22,14 +22,18 @@ const router = createRouter({
       component: LineupView,
       children: [
         {path:'', redirect: '/lineup/games'},
-        { path: 'games', component: GamesLineup },
-        { path: 'movies', component: MoviesLineup }
+        { path: 'games', component: GamesLineup,
+          meta: {title: 'Games | Resident Evil Portal'}
+         },
+        { path: 'movies', component: MoviesLineup,
+          meta: {title: 'Movies | Resident Evil Portal'} }
       ]
     },
     {
       path:'/characters',
       name:'characters',
       component:CharactersView,
+          meta: {title: 'Characters | Resident Evil Portal'},
       children: [
         {path:'', redirect: '/characters/list'},
         {path:'list', component: CharactersList},
@@ -39,9 +43,13 @@ const router = createRouter({
     {
       path:'/history',
       name:'history',
-      component: HistoryView
-    }
+      component: HistoryView,
+      meta: {title: 'History | Resident Evil Portal'}
+    },
   ]
 })
 
+router.afterEach((to)=> {
+  document.title = to.meta.title as string || 'Resident Evil Portal'
+})
 export default router

@@ -2,9 +2,9 @@
     <v-container class="my-10">
         <div class="d-flex justify-space-between align-center mb-4">
             <h2 class="section-title">Movies</h2>
-            <v-btn class="btn" @click="$router.push('/lineup/movies')">
-                More
-            </v-btn>
+            <ThemedButton color="surface" @click="$router.push('/lineup/movies')">
+              More
+            </ThemedButton>
         </div>
 
         <v-row>
@@ -22,7 +22,7 @@
                 </v-card-text>
 
                 <v-card-actions>
-                    <v-btn variant="text" color="red" @click="$router.push('/lineup/movies')">
+                    <v-btn variant="text" color="accent" @click="$router.push('/lineup/movies')">
                         Details
                     </v-btn>
                 </v-card-actions>
@@ -35,9 +35,11 @@
 <script lang="ts">
 import { mapState } from 'pinia';
 import { useMovieStore } from '@/stores/movieStore';
+import ThemedButton from './ThemedButton.vue';
 
 export default {
     name:"MoviesSection",
+    components: {ThemedButton},
     computed: {
       ...mapState(useMovieStore, ['previewMovies'])
     }

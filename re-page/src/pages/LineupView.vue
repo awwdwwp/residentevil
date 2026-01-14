@@ -3,31 +3,36 @@
         <h1 class="section-title mt-6 mb-6">LINEUP</h1>
 
         <div class="lineup-nav">
-            <v-btn
-             :class="['tab-btn', $route.path.includes('games') && 'active-tab']"
-            
-            variant="flat"
-            class="mx-2"
-            @click="$router.push('/lineup/games')">
-        Games
-        </v-btn>
+          <ThemedButton
+          :color="$route.path.includes('games') ? 'primary' : 'surface'"
+          :customClass="['tab-btn', $route.path.includes('games') && 'active-tab'].filter(Boolean).join(' ')"
+          variant="flat"
+          class="mx-2"
+          @click="$router.push('/lineup/games')"
+        >
+          Games
+        </ThemedButton>
 
-        <v-btn
-        
+        <ThemedButton
+        :color="$route.path.includes('movies') ? 'primary' : 'surface'"
+        :customClass="['tab-btn', $route.path.includes('movies') && 'active-tab'].filter(Boolean).join(' ')"
         variant="flat"
-        :class="['tab-btn', $route.path.includes('movies') && 'active-tab']"
         class="mx-2"
-        @click="$router.push('/lineup/movies')">
-        Movies
-    </v-btn>
+         @click="$router.push('/lineup/movies')">
+          Movies
+        </ThemedButton>
+
         </div>
         <router-view />
     </v-container>
 </template>
 
 <script lang="ts" >
+import ThemedButton from '@/components/ThemedButton.vue';
+
 export default {
-    name:"LineupView"
+    name:"LineupView",
+    components: {ThemedButton}
 }
 </script>
 
@@ -44,17 +49,11 @@ export default {
 }
 
 .v-btn:hover {
-    background-color: rgba(184, 8, 8, 0.582);
+    background-color: 'rgba'(184, 8, 8, 0.582);
 }.tab-btn {
     border-radius: 0px;
-    width:300px;
-    height:60px;
-  background: rgba(5, 0, 0, 0.76);
-  color: white;
+    width:300px !important;
+    height:60px !important;
 }
 
-.active-tab {
-  background: #8b00008e !important; 
-  color: white !important;
-}
 </style>

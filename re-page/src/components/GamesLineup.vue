@@ -9,10 +9,11 @@
             md="4">
                 <v-card elevation="6"
                 class="game-card"
+                color="background"
                 @click="openOverlay(game)"
                 style="cursor:pointer;">
                     <v-img :src="game.image" height="220 cover"></v-img>
-                    <v-card-title>{{game.title}}</v-card-title>
+                    <v-card-title color="secondary">{{game.title}}</v-card-title>
                     <v-card-text>
                         <p class="mb-5">Available on:</p>
                         <div class="platforms">
@@ -33,7 +34,7 @@
     </div>
 
     <v-dialog v-model="overlay" max-width="800">
-        <v-card>
+        <v-card color="secondary">
             <v-card-title class="text-end">
                 <v-btn icon @click="closeOverlay">
                         <v-icon>mdi-close</v-icon>

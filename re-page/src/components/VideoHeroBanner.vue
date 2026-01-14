@@ -14,10 +14,9 @@
 />
 
 <p class="subtitle">Your fan hub for games, movies, news, and more</p>
-
-<button class="re-button" @click="$router.push('/news')">
-  Latest News
-</button>
+<button class="re-button" color="primary"
+:style="{ background: $vuetify.theme.current.colors.primary }"
+@click="$router.push('/news')"> Latest News </button>
 </div>
 </v-sheet>
 </template>
@@ -88,8 +87,6 @@ background-color: transparent;
 
   width: 220px;
   height: 50px;
-  background: #930912;
-  color: #fff;
   font-size: 14px;
   letter-spacing: 0.05rem;
   transition: background 0.3s;
@@ -100,7 +97,7 @@ background-color: transparent;
 
 
 .re-button:hover {
-  background: #b50d19;
+  filter:brightness(1.2);
 }
 
 

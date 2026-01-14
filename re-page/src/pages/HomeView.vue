@@ -27,6 +27,7 @@
         </v-col>
       </v-row>
     </v-container>
+    <GameCountdown />
     </div>
 
 </template>
@@ -38,6 +39,7 @@ import NewsSection from '@/components/NewsSection.vue';
 import GamesSection from '@/components/GamesSection.vue';
 import MoviesSection from '@/components/MoviesSection.vue';
 import CharactersSection from '@/components/CharactersSection.vue';
+import GameCountdown from '@/components/GameCountdown.vue';
 
 export default {
     name:"HomeView",
@@ -47,7 +49,8 @@ export default {
         NewsSection,
         GamesSection,
         MoviesSection,
-        CharactersSection
+        CharactersSection,
+        GameCountdown
     }
 }
 </script>

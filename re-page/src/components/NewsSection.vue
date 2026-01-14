@@ -2,9 +2,9 @@
     <v-container class="my-10">
         <div class="d-flex justify-space-between align-center mb-4">
             <h2 class="section-title">Latest News</h2>
-            <v-btn class="btn" @click="$router.push('/news')">
-                More
-            </v-btn>
+            <ThemedButton color="surface" @click="$router.push('/news')">
+              More
+            </ThemedButton>
         </div>
         <v-row>
             <v-col
@@ -22,7 +22,7 @@
                     <small class="date">{{ item.date }}</small>
                 </v-card-text>
                 <v-card-actions>
-                    <v-btn variant="text" color="red" @click="$router.push('/news')">
+                    <v-btn variant="text" color="accent" @click="$router.push('/news')">
                         More
                     </v-btn>
                 </v-card-actions>
@@ -33,8 +33,11 @@
 </template>
 
 <script lang="ts">
+import ThemedButton from './ThemedButton.vue';
+
     export default {
         name:"NewsSection",
+        components: {ThemedButton},
         data() {
             return {
                 news: [
@@ -90,30 +93,5 @@ h2 {
     letter-spacing: 0.05em;
     font-weight: 400;
 }
-.btn {
- margin: 0;
-  padding: 0;
-  border: 1px solid red;
-  border-radius: 0px;
-  font: inherit;
-  vertical-align: baseline;
-  text-decoration: none;
-  outline: none;
-  justify-content: center;
-  align-items: center;
-  width: 220px;
-  height: 50px;
-  background: #24010546;
-  color: #ff0000;
-  font-size: 14px;
-  letter-spacing: 0.05rem;
-  transition: background 0.3s;
-  position: relative;
 
-  cursor: pointer;
-}
-
-.btn:hover {
-    background: #70000894;
-}
 </style>

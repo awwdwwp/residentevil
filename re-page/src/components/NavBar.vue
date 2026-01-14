@@ -15,13 +15,33 @@
                 <v-btn variant="text" class="nav-btn" to="/lineup">Lineup</v-btn>
                 <v-btn variant="text" class="nav-btn" to="/characters">Characters</v-btn>
             </div>
+
+            <ThemeSwitcher />
+            <v-btn icon @click="$emit('toggle-audio')">
+                <v-icon>
+                    {{ muted ? 'mdi-volume-off' : 'mdi-volume-high' }}
+                </v-icon>
+            </v-btn>
+        
         </v-container>
     </v-app-bar>
 </template>
 
 <script lang="ts">
+import ThemeSwitcher from './ThemeSwitcher.vue';
+
 export default {
     name:"NavBar",
+    components: {ThemeSwitcher},
+    props: {
+        muted: {
+            type:Boolean,
+            required: true
+        },
+        emits: {
+            'toggle-audio': () => true
+        }
+    }
 }
 </script>
 

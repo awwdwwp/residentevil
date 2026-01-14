@@ -1,14 +1,14 @@
 <template>
-  <v-app>
+  <v-app :theme="currentTheme">
      <video
-     v-if="isHome"
+     v-if="isHome && homeVideoSrc"
       autoplay
       muted
       loop
       playsinline
       class="background-video"
     >
-      <source src="/trailer_pc.mp4" type="video/mp4">
+      <source :src="homeVideoSrc" type="video/mp4">
     </video>
     <div
   v-else
@@ -19,8 +19,10 @@
     <div class="video-overlay"></div>
     <AgeVerification />
 
-    <NavBar />
-    <router-view />
+    <NavBar @toggle-audio="toggleMute" :muted="muted"/>
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
     <PageFooter />
   </v-app>
 </template>
@@ -29,6 +31,8 @@
 import NavBar from './components/NavBar.vue';
 import PageFooter from './components/PageFooter.vue';
 import AgeVerification from './components/AgeVerification.vue';
+import { mapState } from 'pinia';
+import { useThemeStore } from './stores/themeStore';
 
 export default {
   name: "App",
@@ -38,14 +42,34 @@ export default {
     AgeVerification
   },
   data() {
-    return { backgroundImage: 'https://game.capcom.com/residentevil/pc/img/lineup/bg-lineup.jpg'}
+    return { backgroundImage: 'https://game.capcom.com/residentevil/pc/img/lineup/bg-lineup.jpg' ,
+      audio: null as HTMLAudioElement | null,
+      muted: true
+    }
   },
   computed: {
     isHome() {
       return this.$route.path ==='/'
+    },
+    ...mapState(useThemeStore, ['currentTheme']),
+    homeVideoSrc(): string | null {
+      if (!this.isHome) return null
+      return this.currentTheme === 'requiem' ? '/trailer_pc1.mp4' : '/trailer_pc.mp4'
     }
   },
-  
+  methods: {
+    toggleMute() {
+      if (!this.audio) return
+
+      this.muted = !this.muted
+      if (this.muted) {
+        this.audio.pause()
+        this.audio.currentTime = 0
+      } else {
+        this.audio?.play().catch(()=> {})
+      }
+    }
+  },
   watch: {
     $route(to) {
 
@@ -56,8 +80,22 @@ export default {
       }else {
         this.backgroundImage = 'https://game.capcom.com/residentevil/pc/img/about/history/bg_history.jpg'
       }
+    },
+    currentTheme() {
+      const video = document.querySelector('.background-video') as HTMLVideoElement
+      if (video) {
+        video.load()
+        video.play().catch(()=>{})
+      }
     }
-  }
+
+  },
+    mounted() {
+      this.audio = new Audio('/one.mp3')
+      this.audio.loop = true
+      this.audio.volume = 0.3;
+
+    }
 }
 </script>
 
@@ -96,4 +134,14 @@ background-color: transparent !important;
   background-repeat: no-repeat;
   z-index: -2;
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 </style>
