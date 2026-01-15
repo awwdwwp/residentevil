@@ -10,10 +10,11 @@
             <v-col
             v-for="item in latestArticles"
             :key="item.id"
-            cols="12"
+            cols="6"
+            sm="6"
             md="4">
             <v-card class="news-card" elevation="6">
-                <v-img :src="item.image" cover/>
+                <v-img :src="item.image" class="news-img" cover/>
                 <v-card-title>{{ item.title }}</v-card-title>
                 <v-card-text>
                     <p class="date">{{ item.date }}</p>
@@ -44,6 +45,11 @@ import { useNewsStore } from '@/stores/newsStore';
 </script>
 
 <style scoped>
+.news-img {
+  max-height: 350px;
+  height: 100%;
+}
+
 .section-title {
   color: white;
   font-weight: bold;

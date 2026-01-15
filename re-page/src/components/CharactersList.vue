@@ -3,8 +3,9 @@
             <v-col
             v-for="char in characterStore.characters"
             :key="char.id"
-            cols="12"
-            md="6"
+            cols="6"
+            sm="6"
+            md="4"
             lg="4"
             >
                 <v-card class="character-card" elevation="6">
@@ -15,15 +16,15 @@
                         <v-carousel
                         :continuous="false"
                         :show-arrows="false"
+                        class="char-carousel"
                         delimiter-icon="mdi-square"
-                        height="300"
                         hide-delimiter-background
                         >
                             <v-carousel-item
                             v-for="(img, index) in char.images"
                             :key="index"
                             >
-                            <v-img :src="img" height="250" cover 
+                            <v-img :src="img" class="character-img" cover 
                             referrerpolicy="no-referrer"
                              crossorigin="anonymous"></v-img>
                             </v-carousel-item>
@@ -48,13 +49,38 @@ export default {
 </script>
 
 <style scoped>
-    .v-carousel__controls__item .v-icon {
-background: #555555a3;
+.v-carousel__controls__item .v-icon {
+  background: #555555a3;
 }
+.character-card {
+    display: flex;
+  flex-direction: column;
+}
+
+.char-carousel {
+    max-height: 300px;
+    height: 100%;
+}
+@media (max-width:768px) {
+    .char-carousel {
+        height: 190px !important;
+    }
+}
+
+.character-card .v-carousel-item {
+  height: auto;
+}
+.character-img {
+    aspect-ratio: 1/1 !important;
+    width: 100%;
+  object-fit: cover
+  }
 .desc {
-    font-family: 'Oswald', sans-serif!important;
+  font-family: 'Oswald', sans-serif!important;
+  font-size: 0.85rem;
 }
 :deep(.v-carousel__controls .v-btn--icon) {
   color: #e4e4e4
 }
+
 </style>

@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <v-container fluid class="home-root pa-0">
+      
         <VideoHeroBanner/>
     <NewsCarousel />
     <NewsSection />
@@ -28,7 +29,7 @@
       </v-row>
     </v-container> -->
     <GameCountdown />
-    </div>
+  </v-container>
 
 </template>
 
@@ -63,7 +64,7 @@ export default {
   border-radius: 0px;
   border: 1px solid rgba(255, 255, 255, 0.158);
 }
-.v-btn {
+/*.v-btn {
   -webkit-text-size-adjust: 100%;
   visibility: visible;
   margin: 0;
@@ -88,8 +89,10 @@ export default {
   position: relative;
 
   cursor: pointer;
+} */
+.home-root {
+  overflow-x: hidden;
 }
-
 
 .v-btn:hover {
   background: #b50d19;

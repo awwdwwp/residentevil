@@ -1,5 +1,5 @@
 <template>
-    <v-container class="my-10 mt-15">
+    <v-container class="my-10 mt-15 fluid">
         <h1 class="section-title mt-6 mb-6">CHARACTERS</h1>
         <div class="characters-nav mb-6">
            
@@ -39,6 +39,7 @@ import ThemedButton from '@/components/ThemedButton.vue';
 <style scoped>
     .characters-nav {
         display: flex;
+        flex-wrap: wrap;
     }
 
 .tab-btn {
@@ -47,6 +48,12 @@ import ThemedButton from '@/components/ThemedButton.vue';
     height:60px !important;
   background: rgba(5, 0, 0, 0.76);
   color: white;
+}
+@media (max-width: 600px) {
+    .tab-btn {
+    max-width: 100% !important;
+    height:100% !important;
+    }
 }
 
 

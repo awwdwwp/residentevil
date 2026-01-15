@@ -44,6 +44,8 @@ export default {
 }
 .lineup-nav {
   display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 30px;
 }
@@ -52,8 +54,7 @@ export default {
     background-color: 'rgba'(184, 8, 8, 0.582);
 }.tab-btn {
     border-radius: 0px;
-    width:300px !important;
-    height:60px !important;
+    
 }
 
 </style>

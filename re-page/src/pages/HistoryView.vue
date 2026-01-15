@@ -263,4 +263,72 @@ export default defineComponent({
 .entry_img {
   max-width: 250px !important;
 }
+@media (max-width: 768px) {
+  .history-grid {
+    gap: 48px;
+  }
+
+  .history-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .history-year {
+    font-size: 24px;
+    text-align: left;
+  }
+
+  .history-center {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .history-card {
+    padding: 16px;
+  }
+
+  .history-card-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .entry_img {
+    max-width: 180px !important;
+  }
+
+  .history-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay-content {
+    max-width: 100%;
+    margin: 60px 12px;
+    padding: 20px;
+  }
+
+  .overlay-title {
+    font-size: 20px;
+  }
+
+  .overlay-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+@media (max-width: 768px) {
+  .history-container > .v-img {
+    height: 160px !important;
+  }
+}
+.overlay-bg {
+  z-index: 0;
+  pointer-events: none;
+}
+.close-btn {
+  z-index: 10;
+}
 </style>

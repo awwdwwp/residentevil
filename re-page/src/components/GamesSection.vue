@@ -11,11 +11,12 @@
       <v-col
         v-for="game in previewGames"
         :key="game.id"
-        cols="12"
+        cols="6"
+        sm="4"
         md="4"
       >
         <v-card class="preview-card" elevation="6">
-          <v-img :src="game.image" height="350" cover></v-img>
+          <v-img :src="game.image" class="game-img" cover></v-img>
 
           <v-card-title>{{ game.title }}</v-card-title>
 
@@ -59,6 +60,10 @@ export default {
 .preview-card {
   background: #0d0d0d;
   color: white;
+}
+.game-img {
+  max-height: 350px;
+  height: 100%;
 }
 
 .desc {

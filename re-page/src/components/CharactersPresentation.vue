@@ -3,18 +3,19 @@
         <v-slide-group
         show-arrows
         v-model="selected"
-        class="mb-6"
+        class="mb-4"
         >
             <v-slide-group-item
             v-for="char in characterStore.characters"
             :key="char.id"
             :value="char.id"
+            style="min-width: 80px;"
             >
                 <v-img
                 :src="char.images[0]"
                 height="100"
                 width="100"
-                class="ma-2 rounded-lg"
+                class="icons ma-1 rounded-lg"
                 :class="{'selected-thumb':selected === char.id}"
                 @click="selected = char.id"
                 ></v-img>
@@ -32,10 +33,10 @@
                     <v-card-text>
                         
                         <v-carousel
-                        :show-arrows="false"
-                        delimiter-icon="mdi-square"
-                        height="420"
-                        hide-delimiter-background
+                         :show-arrows="false"
+                         delimiter-icon="mdi-square"
+                         hide-delimiter-background
+                         class="character-carousel"
                         >
                             <v-carousel-item
                             v-for="(img, index) in curCharacter.images"
@@ -94,9 +95,9 @@ export default {
     filter:brightness(100%) !important;
   border: 3px solid rgb(var(--v-theme-accent));
 }
+
 .character-card {
   background: #0a0a0a44; 
-  /*border: 2px solid #550000; */
   border-radius: 0px;
   margin-top:3rem;
   padding-inline: 3rem;
@@ -143,9 +144,43 @@ font-family: 'Oswald', sans-serif;
   width: 100%;       
   border-radius: 0px;
 }
+@media (max-width: 700px) {
+    .carousel-img {
+        scale:1 !important;
+    }
+    .character-title {
+        font-size: 1.8rem !important;
+    }
+    .character-desc {
+        font-size: 0.8rem ;
+    }
+}
 
 :deep(.v-carousel__controls .v-btn--icon) {
   color: #e4e4e4
+}
+.character-carousel {
+  height: 420px;
+}
+
+@media (max-width: 768px) {
+  .character-carousel {
+    height: 260px !important;
+  }
+  .character-card {
+    padding-inline: 1rem;
+    margin-top: 1.5rem;
+  }
+  .icons {
+    height: 50px !important;
+    width: 50px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-carousel {
+    height: 220px;
+  }
 }
 </style>
 

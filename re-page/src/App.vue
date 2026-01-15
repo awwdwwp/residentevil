@@ -68,7 +68,8 @@ export default {
     ...mapState(useThemeStore, ['currentTheme']),
     homeVideoSrc(): string | null {
       if (!this.isHome) return null
-      return this.currentTheme === 'requiem' ? '/trailer_pc1.mp4' : '/trailer_pc.mp4'
+      const base = import.meta.env.BASE_URL
+      return this.currentTheme === 'requiem' ? base+'/trailer_pc1.mp4' : base+'/trailer_pc.mp4'
     }
   },
   methods: {
@@ -100,7 +101,7 @@ export default {
 
   },
     mounted() {
-      this.audio = new Audio('/one.mp3')
+      this.audio = new Audio(import.meta.env.BASE_URL + '/one.mp3')
       this.audio.loop = true
       this.audio.volume = 0.3;
 
@@ -110,6 +111,8 @@ export default {
 
 <style>
 html, body {
+   overflow-x: hidden;
+  max-width: 100vw;
   font-family: メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 .background-video {
@@ -146,6 +149,20 @@ background-color: transparent !important;
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
 }
 
 .fade-enter-from,

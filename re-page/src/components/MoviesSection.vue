@@ -11,7 +11,8 @@
             <v-col
             v-for="movie in previewMovies"
             :key="movie.id"
-            cols="12"
+            cols="6"
+            sm="6"
             md="4"
             >
             <v-card class="preview-card" elevation="6">

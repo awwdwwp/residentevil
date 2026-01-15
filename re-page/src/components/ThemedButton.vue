@@ -48,7 +48,8 @@
                 return {
                     background:bg,
                     color: `${textColor} !important`,
-                    width: '220px',
+                    width: '100%',
+                    maxWidth:'220px',
                     height: '50px',
                     border: `1px solid ${borderColor}`,
                     borderRadius: '0px',
@@ -82,5 +83,12 @@
   inset: 0;
   border: 1px solid rgba(255, 255, 255, 0.25);
   pointer-events: none;
+}
+@media (max-width: 600px) {
+  .themed-btn {
+    font-size: 12px !important;
+    min-height: 36px;
+    padding: 0 12px;
+  }
 }
 </style>

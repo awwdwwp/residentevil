@@ -2,12 +2,12 @@
     <v-container class="game-wrapper my-16">
         <v-card class="game-card pa-8" elevation="12">
             <v-img 
-            src="/req.webp"
+            :src="reqImage"
             class="mx-auto mb-6"
             contain/>
 
             <v-img 
-            src="/logo_w.webp"
+            :src="logoImage"
             max-width="420"
             class="mx-auto mb-6"
             contain/>
@@ -35,6 +35,8 @@
         name:'GameCountdown',
         data() {
             return {
+                reqImage: import.meta.env.BASE_URL + 'req.webp',
+                logoImage: import.meta.env.BASE_URL + 'logo_w.webp',
                 targetDate: new Date('2026-02-27T00:00:00'),
                 now:new Date(),
                 timer: null as number | null

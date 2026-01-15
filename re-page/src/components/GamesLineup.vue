@@ -5,7 +5,8 @@
             <v-col
             v-for="game in games"
             :key="game.id"
-            cols="12"
+            cols="6"
+            sm="4"
             md="4">
                 <v-card elevation="6"
                 class="game-card"
@@ -43,10 +44,10 @@
                     
             <v-card-text>
                 <v-row>
-                    <v-col cols="12" md="5">
-                        <v-img :src="selectedGame?.image" height="300" cover></v-img>
+                    <v-col cols="6" sm="8" md="7">
+                        <v-img :src="selectedGame?.image" style="max-height: 300;height: 100%;" cover></v-img>
                     </v-col>
-                    <v-col cols="12" md="7">
+                    <v-col cols="6" sm="4" md="5">
                         <span class="text-h5">{{ selectedGame?.title }}</span>
                         <p class="mb-2"><strong>Platforms</strong></p>
                         <div class="platforms">
@@ -113,23 +114,21 @@ export default {
 }
 
 .platform-chip {
-  color: rgb(255, 255, 255);
+  color: white;
   font-family: 'Oswald', sans-serif;
-  border-radius: 20px;
   font-weight: 600;
-  font-weight: bold;
-  border-radius: 0px;
-  font: inherit;
-  vertical-align: baseline;
-  text-decoration: none;
-  outline: none;
-  text-align: center;
-  justify-content: center;
-  width: 7rem;
-  height: 50px;
-  position: relative;
-  cursor: pointer;
-
+  border-radius: 0;
+  padding: 4px 10px;
+  min-height: 28px;
+  min-width: unset;
+  width: auto;
+  font-size: 0.75rem;
+}
+@media (max-width: 600px) {
+  .platform-chip {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
 }
 .v-dialog > .v-overlay__content > .v-card, .v-dialog > .v-overlay__content > form > .v-card {
     border: 1px rgba(255, 255, 255, 0.26) solid;
@@ -139,5 +138,16 @@ export default {
 .v-card .v-card-title {
  background-color: rgb(var(--v-theme-primary)) !important;
 margin-bottom: 13px;;
+}
+
+@media (max-width: 600px) {
+  .game-card {
+    font-size: 0.9rem;
+  }
+
+  .v-card-title {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
 }
 </style>
