@@ -36,6 +36,17 @@ import { mapState } from 'pinia';
 import { useThemeStore } from './stores/themeStore';
 import TopButton from './components/TopButton.vue';
 
+const BACKGROUND_MAP = [
+  {
+    match: (path:string) => path.startsWith('/lineup'),
+    image: 'https://game.capcom.com/residentevil/pc/img/lineup/bg-lineup.jpg'
+  },
+  {
+    match:(path:string) => path.startsWith('/characters'),
+    image: 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/characters_bg.webp'
+  }
+]
+
 export default {
   name: "App",
   components: {
@@ -75,14 +86,9 @@ export default {
   },
   watch: {
     $route(to) {
-
-      if(to.path.startsWith('/lineup')) {
-        this.backgroundImage = 'https://game.capcom.com/residentevil/pc/img/lineup/bg-lineup.jpg'
-      } else if (to.path.startsWith('/characters')) {
-        this.backgroundImage = 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/characters_bg.webp'
-      }else {
-        this.backgroundImage = 'https://game.capcom.com/residentevil/pc/img/about/history/bg_history.jpg'
-      }
+      const found = BACKGROUND_MAP.find(b=>b.match(to.path))
+      this.backgroundImage = found ? found.image :
+      'https://game.capcom.com/residentevil/pc/img/about/history/bg_history.jpg'
     },
     currentTheme() {
       const video = document.querySelector('.background-video') as HTMLVideoElement

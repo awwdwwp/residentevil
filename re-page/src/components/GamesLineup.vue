@@ -67,6 +67,7 @@
 </template>
 
 <script lang="ts">
+import { getPlatformColor } from '@/utils/platformColors';
 import { useGameStore } from '@/stores/gameStore';
 import { mapState } from 'pinia';
 import type {Game} from '@/stores/gameStore';
@@ -80,21 +81,7 @@ export default {
         }
     },
     methods: {
-        getPlatformColor(platform: string) {
-            const colors: Record<string,string> = {
-                PC: '#1E90FF',
-                PS5: '#0A2FFF',
-                PS4: '#1B4BFF',
-                Xbox: '#006129',
-                XboxOne: '#2ECC71',
-                Switch: '#d50500'
-            }
-            if (!colors[platform]) {
-                const extra = ['#FF9800', '#9C27B0', '#00BCD4', '#5da904']
-                return extra[platform.length % extra.length]
-            }
-            return colors[platform]
-        },
+        getPlatformColor,
         openOverlay(game: Game) {
             this.selectedGame = game;
             this.overlay = true;

@@ -7,7 +7,7 @@
     <MoviesSection />
     <CharactersSection />
 
-    <v-container class="mt-8 mb-8 text-center" >
+    <!-- <v-container class="mt-8 mb-8 text-center" >
       <v-row justify="center">
         <v-col cols="12" md="6">
           <router-link to="/about" style="text-decoration:none;">
@@ -26,7 +26,7 @@
           </router-link>
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
     <GameCountdown />
     </div>
 

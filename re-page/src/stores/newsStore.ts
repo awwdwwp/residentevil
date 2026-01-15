@@ -15,16 +15,18 @@ export type ArticleCategory =
   | 'RE NET'
 
   export type NewsCategory = 'All' | ArticleCategory
+  export type SortOrder = 'newest' | 'oldest'
 
 export const useNewsStore = defineStore('news', {
     state: () => ({
         selectedCategory: 'All' as NewsCategory,
+        sortOrder: 'newest' as SortOrder,
         articles: [
       {
         id: 1,
-        image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news1.jpg?raw=true",
+        image:"https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/news/news-information1.jpg",
         title: 'Resident Evil Portal maintenance info',
-        date: 'Jan.14.2026',
+        date: '2026-01-14',
         category: 'RE NET',
         content: `
 Thank you for using Resident Evil Portal.
@@ -43,7 +45,7 @@ The ending time is an estimate...
         id: 2,
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news2.jpg?raw=true",
         title: 'Resident Evil Showcase | January 15, 2026',
-        date: 'Jan.13.2026',
+        date: '2026-01-13',
         category: 'Game',
         content: `
 Resident Evil Showcase | January 15, 2026
@@ -63,7 +65,7 @@ Airing January 15, 2026!
         id: 3,
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news3.jpg?raw=true",
         title: 'A new arcade game project based on Resident Evil 2 has started!',
-        date: 'Sep.27.2025',
+        date: '2025-09-27',
         category: 'Game',
         content: `
 A new arcade game project based on Resident Evil 2 was announced
@@ -93,7 +95,7 @@ Bandai Namco Amusement Unit X account (@bnam_jp).
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news4.jpg?raw=true",
         title:
           'Dead by Daylight Adds New Outfits for Nemesis, Ada Wong & More!',
-        date: 'Feb.12.2025',
+        date: '2025-02-12',
         category: 'Collaboration',
         content: `
 Since Dead by Daylight first brought Resident Evil into The Fog in 2021,
@@ -118,7 +120,7 @@ for players to enjoy.
         id: 5,
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news5.jpg?raw=true",
         title: 'BABYMETAL x Resident Evil 30th Anniversary Collaboration!',
-        date: 'Nov.04.2025',
+        date: '2025-11-04',
         category: 'Collaboration',
         content: `
 On November 1st, the “BABYMETAL WORLD TOUR 2025–2026 SPECIAL ARENA SHOW IN US INTUIT DOME” was held in Los Angeles.
@@ -134,7 +136,7 @@ This epic combination of the one and only world-famous metal dance group BABYMET
         id: 6,
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news6.jpg?raw=true",
         title: 'The Puzzles & Survival x Resident Evil Collaboration Begins',
-        date: 'Mar.30.2023',
+        date: '2023-03-30',
         category: 'Collaboration',
         content: `
 Welcome to Primal Conquest: Dino Era
@@ -161,7 +163,7 @@ Thank you once again for your support! Let's embark on this incredible journey t
         id: 7,
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news7.jpg?raw=true",
         title: 'Fortnite Resident Evil Outfits: Leon & Claire',
-        date: 'Mar.17.2023',
+        date: '2025-03-17',
         category: 'Collaboration',
         content: `
 “You got to keep moving forward.”
@@ -180,7 +182,7 @@ A tough young woman on a search for her brother, Claire Redfield may have luck o
         id: 8,
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news8.jpg?raw=true",
         title: 'Resident Evil: Death Island Coming Summer 2023',
-        date: 'Feb.08.2023',
+        date: '2023-02-08',
         category: 'Movie',
         content: `
 Based on Resident Evil, the hit survival-horror game that sold over 130 million copies worldwide, Death Island is a new CG animated film and sequel to Resident Evil: Vendetta.
@@ -211,7 +213,7 @@ copyright: ©2023 CAPCOM / DEATH ISLAND FILM PARTNERS
         id: 9,
         image:"https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news-information.jpg?raw=true",
         title: 'Closure of Resident Evil.net Game Link Web Page',
-        date: 'Mar.14.2025',
+        date: '2025-03-14',
         category: 'RE NET',
         content: `
 Thank you for using Resident Evil Portal.
@@ -239,16 +241,278 @@ Additionally, the data for Re:Verse in MY PROFILE > PLAY DATA will no longer be 
 Thank you for your continued support of the Resident Evil Portal.
         `,
       },
+      {
+  id: 10,
+  title: 'Resident Evil 2 (1998) Now Available on GOG',
+  date: '2024-08-27',
+  image:"https://game.capcom.com/residentevil/share/news/uploads/2024/08/gog_re2_eyecatch.jpg",
+  category: 'Game',
+  content: `
+The original "Resident Evil 2," first released in 1998, is now available on GOG.
+
+Relive the survival horror classic that defined a generation, now optimized for modern systems while preserving its original atmosphere, gameplay, and iconic story set in Raccoon City.
+
+Experience Leon S. Kennedy and Claire Redfield’s first nightmare with DRM-free access on PC.
+  `,
+},
+{
+  id: 11,
+  title: 'Resident Evil Returns on GOG',
+  date: '2024-06-28',
+  image:"https://game.capcom.com/residentevil/share/news/uploads/2024/06/gog_re_eyecatch.jpg",
+  category: 'Game',
+  content: `
+Resident Evil returns!
+
+The game that defined the survival horror genre is now available on GOG.
+Experience the origins of survival horror with the original Resident Evil, featuring classic gameplay, puzzle-solving, and unforgettable tension.
+
+Now available with modern compatibility and DRM-free access.
+  `,
+},
+{
+  id: 12,
+  title: 'Resident Evil 4 Released for iPhone, iPad, and Mac',
+  date: '2023-12-20',
+  image:"https://game.capcom.com/residentevil/share/news/uploads/2023/12/game_eyecatch-231220-re.jpg",
+  category: 'Game',
+  content: `
+The iPhone, iPad, and Mac versions of Resident Evil 4 have officially launched.
+
+Experience the critically acclaimed survival horror masterpiece with optimized controls and performance tailored for Apple devices, bringing intense action and atmospheric horror to a new platform.
+  `,
+},
+{
+  id: 13,
+  title: 'Resident Evil 4 VR Mode DLC Available for PS VR2',
+  date: '2023-12-08',
+  image:"https://game.capcom.com/residentevil/share/news/uploads/2023/12/game_eyecatch-re-231208.jpg",
+  category: 'Game',
+  content: `
+Resident Evil 4 VR Mode DLC is now available for PlayStation VR2!
+
+Step directly into Leon S. Kennedy’s shoes and experience the terror up close in full virtual reality.
+Don’t have the main game? No problem — a demo version is also available to try the VR experience.
+  `,
+},
+{
+  id: 14,
+  title: 'Separate Ways DLC Launches for Resident Evil 4',
+  date: '2023-09-15',
+  image:"https://game.capcom.com/residentevil/share/news/uploads/2023/09/game_eyecatch-230921-re.jpg",
+  category: 'Game',
+  content: `
+Separate Ways, the additional story DLC for Resident Evil 4 featuring Ada Wong, has launched.
+
+Discover untold events from a new perspective as Ada undertakes her own mission parallel to Leon’s journey, featuring new gameplay, story content, and intense encounters.
+  `,
+},
+{
+  id: 15,
+  title: 'Resident Evil Remake Trilogy Available Now',
+  date: '2024-11-22',
+  image:"https://game.capcom.com/residentevil/share/news/uploads/2024/11/241122_re-trilogy_thumb.jpg",
+  category: 'Game',
+  content: `
+Resident Evil Remake Trilogy Available Now!
+
+Resident Evil Remake Trilogy, a great value pack that contains three Resident Evil remake titles and additional content, is available now on digital storefronts.
+Experience true survival horror across these multiple titles.
+
+Resident Evil Remake Trilogy
+[Platforms]
+PlayStation®5 / PlayStation®4 / Xbox Series X|S / Xbox One / PC (Steam®)
+
+[Included Contents]
+- RESIDENT EVIL 2 Deluxe Edition
+- RESIDENT EVIL 3
+- RESIDENT EVIL 3 - Classic Costume Pack
+- Resident Evil Resistance
+- Resident Evil 4 Gold Edition
+- Resident Evil 4 - The Mercenaries
+
+Please check each title's store page for more details.
+
+Note:
+Items contained in this set can be purchased individually. Please take care to avoid duplicate purchases.
+Note: Resident Evil 4 Gold Edition is not compatible with Xbox One.
+  `,
+},{
+  id: 16,
+  title: 'Notice of Resident Evil Portal Site Privacy Policy / Terms of Service Update',
+  date: '2024-11-26',
+  category: 'RE NET',
+  image: 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/news/news-information1.jpg',
+  content: `
+Thank you for using Resident Evil Portal.
+
+The Terms of Service and the Privacy Policy for the Resident Evil Portal website and the Resident Evil Ambassador Program will be updated on January 15, 2025.
+You may see the full updated text of both agreements below:
+
+- Resident Evil Portal Privacy Policy
+https://c.cid.capcom.com/info/policy/privacy/en/
+
+- Resident Evil Portal Terms of Service
+https://game.capcom.com/residentevil/en/agreement-portalupdatepage.html
+
+- Resident Evil Ambassador Program Terms of Service
+https://game.capcom.com/residentevil/en/agreement-ambassadorupdatepage.html
+
+Thank you for your continued support of the Resident Evil Portal.
+  `,
+},
+{
+  id: 17,
+  title: '[Resolved] Unable to send data to RE NET normally',
+  date: '2024-11-06',
+  category: 'RE NET',
+  image: 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/news/news-information1.jpg',
+  content: `
+Data was not sent to RE NET as normal. Please see below for details.
+
+Period: November 6th, 2024, Approx. 10:00 - 17:30 (JST)
+Affected Titles: Resident Evil Village
+Affected Platforms: PlayStation 5
+
+The situation has been resolved and data can be sent normally.
+We apologize for any inconvenience this has caused.
+  `,
+},
+{
+  id: 18,
+  title: 'Resident Evil Portal and Resident Evil.Net maintenance info',
+  date: '2024-09-13',
+  category: 'RE NET',
+  image: 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/news/news-information1.jpg',
+  content: `
+Thank you for using Resident Evil Portal.
+
+We are going to be performing maintenance on "Resident Evil Portal" and "Resident Evil.Net" on the following date and time.
+
+[Maintenance Period]
+Sep. 18, 2024 (Wed) 10:00 - 13:00 (JST)
+
+During the maintenance period, "Resident Evil Portal" and the following game-linked features will be temporarily unavailable.
+
+- Resident Evil 6: PlayStation 3, Xbox 360, Steam
+- Resident Evil Revelations: PlayStation 3, Xbox 360, Steam
+- Resident Evil Revelations 2: PlayStation 3, Xbox 360, PlayStation 4, Xbox ONE, Steam
+- Resident Evil: PlayStation 3, Xbox 360, PlayStation 4, Xbox ONE, Steam
+- Umbrella Corps: PlayStation 4, Steam
+- Resident Evil 7 biohazard: PlayStation 4, Xbox ONE, Steam
+- Resident Evil 2: PlayStation 4, Xbox ONE, Steam
+- Resident Evil 3 / Resident Evil Resistance: PlayStation 4, Xbox ONE, Steam
+
+Note:
+The ending time is an estimate. Its period may end earlier or later depending on the circumstances.
+
+We apologize for any inconvenience caused.
+  `,
+},
+{
+  id: 19,
+  title: 'Resident Evil Portal maintenance info',
+  date: '2025-09-05',
+  category: 'RE NET',
+  image: 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/news/news-information1.jpg',
+  content: `
+Thank you for using Resident Evil Portal.
+
+We are going to be performing maintenance on "Resident Evil Portal" on the following date and time.
+During this maintenance, the "Resident Evil Portal" will be temporarily unavailable. Thank you for your understanding.
+
+[Maintenance Period]
+September 10, 2024 (Tue) 10:00 ~ 13:00 (JST)
+
+Note:
+The ending time is an estimate. Its period may end earlier or later depending on the circumstances.
+
+We apologize for any inconvenience caused.
+  `,
+},
+{
+  id: 20,
+  title: 'CAPCOM ID System Maintenance Notice',
+  date: '2024-08-26',
+  category: 'RE NET',
+  image: 'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/news/news-information1.jpg',
+  content: `
+Thank you for using RESIDENT EVIL PORTAL.
+
+CAPCOM ID system maintenance will take place during the period listed below. (CAPCOM ID is used to log in to each of the services provided by "RESIDENT EVIL PORTAL".)
+
+Due to this maintenance, services that require a CAPCOM ID login will be temporarily unavailable.
+
+Maintenance Period
+Sep. 2, 2024 (Mon) 2:00 - 6:00 (UTC)
+
+Effect of this maintenance on RESIDENT EVIL PORTAL
+
+- Cannot register / login to RESIDENT EVIL PORTAL
+* If you were logged in before the maintenance, you can continue to use RESIDENT EVIL PORTAL with your login.
+- If you are required to RE:LOGIN (re-authenticate), you will not be able to change the settings in SETTINGS
+- Cannot perform Account link in RE NET
+
+During the maintenance period, the following functions will not be available.
+- Browsing of CAPCOM ID Portal site
+- Registration of new CAPCOM IDs
+- Logging in to CAPCOM ID
+- Editing account information, deleting accounts
+
+Note:
+The ending time is an estimate. The maintenance period may end earlier or later depending on the circumstances.
+
+We apologize for any inconvenience caused.
+  `,
+},
+{
+  id: 21,
+  title: 'Resident Evil.Net maintenance info',
+  date: '2024-06-26',
+  category: 'RE NET',
+  image: 'https://github.com/awwdwwp/re_assets/blob/75dcfc9a8eb04924cee9d6badcde6ba41faf6e89/news/news-information.jpg?raw=true',
+  content: `
+Thank you for using Resident Evil Portal.
+
+We are going to be performing maintenance on "Resident Evil.Net" on the following date and time.
+
+[Maintenance Period]
+July 1, 2024 (Mon) 15:00 ~ 16:00 (JST)
+
+During the maintenance period, the following game-linked features will be temporarily unavailable.
+
+Resident Evil 6: PlayStation 3, Xbox 360, Steam
+Resident Evil Revelations: PlayStation 3, Xbox 360, Steam
+Resident Evil Revelations 2: PlayStation 3, Xbox 360, PlayStation 4, Xbox ONE, Steam
+Resident Evil: PlayStation 3, Xbox 360, PlayStation 4, Xbox ONE, Steam
+
+Note:
+The ending time is an estimate. Its period may end earlier or later depending on the circumstances.
+
+We apologize for any inconvenience caused.
+  `,
+}
     ] as Article[],
     
     }),
     getters: {
         filteredArticles(state) {
-            if (state.selectedCategory === 'All') return state.articles
-            return state.articles.filter(a => a.category === state.selectedCategory)
+            const list = state.selectedCategory === 'All' ? state.articles :
+            state.articles.filter(a => a.category === state.selectedCategory)
+
+            return [...list].sort((a,b)=> {
+              const aTime = new Date(a.date).getTime()
+              const bTime = new Date(b.date).getTime()
+
+              return state.sortOrder === 'newest'
+              ? bTime - aTime
+              : aTime - bTime
+            })
         },
         latestArticles(state) {
-            return state.articles.slice(0,3)
+            return [...state.articles]
+            .sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+            .slice(0,3)
         }
     }
 })

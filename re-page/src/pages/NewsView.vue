@@ -1,6 +1,15 @@
 <template>
   <v-container>
     <h1 class="mb-6">Articles</h1>
+    <div class="d-flex justify-space-between align-center mb-4">
+      <div class="sort-buttons d-flex ">
+      <ThemedButton :color="store.sortOrder === 'newest' ? 'primary' : 'surface'"
+      @click="setSort('newest')" >Newest</ThemedButton>
+
+      <ThemedButton :color="store.sortOrder === 'oldest' ? 'primary' : 'surface'"
+      @click="setSort('oldest')" >Oldest</ThemedButton>
+      </div>
+    </div>
 
     <NewsCategoryNav
       :currentCategory="store.selectedCategory"
@@ -27,10 +36,11 @@ import NewsCategoryNav from '@/components/NewsCategoryNav.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 import ArticleOverlay from '@/components/ArticleOverlay.vue'
 import { useNewsStore, type Article, type NewsCategory } from '@/stores/newsStore'
+import ThemedButton from '@/components/ThemedButton.vue';
 
 export default {
   name: 'NewsView',
-  components: { NewsCategoryNav, ArticleCard, ArticleOverlay },
+  components: { NewsCategoryNav, ArticleCard, ArticleOverlay, ThemedButton },
   data() {
     return {
       store: useNewsStore(),
@@ -55,6 +65,9 @@ export default {
     changeCategory(category: NewsCategory) {
       this.store.selectedCategory = category
       this.$router.push({ name: 'news', params: { category } })
+    },
+    setSort(order: 'newest' | 'oldest') {
+      this.store.sortOrder = order
     }
   }
 }

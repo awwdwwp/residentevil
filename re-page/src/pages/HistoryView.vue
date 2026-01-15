@@ -117,12 +117,15 @@ export default defineComponent({
       openOverlay(item: HistoryEntry) {
         this.selected = item
         this.overlay = true
-        document.body.style.overflow = "hidden"
       },
       closeOverlay() {
         this.overlay = false
         this.selected = null
-        document.body.style.overflow = ""
+      }
+    },
+    watch: {
+      overlay(val: boolean) {
+        document.body.style.overflow = val ? 'hidden' : ''
       }
     }
 })

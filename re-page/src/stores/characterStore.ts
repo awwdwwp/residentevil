@@ -97,7 +97,7 @@ export const useCharacterStore = defineStore('characterStore',{
 {
   id: 12,
   name: 'Sherry Birkin',
-  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/sherry2.webp",
+  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/7c5436749ac84e5b5b5ddf3de0f088cbdc4bdf4f/sherry2.webp",
     "https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/sherry1.webp"
     ],
   description: 'Daughter of William and Annette Birkin, survivor of Raccoon City outbreaks.'
