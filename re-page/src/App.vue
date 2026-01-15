@@ -23,6 +23,7 @@
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>
+    <TopButton />
     <PageFooter />
   </v-app>
 </template>
@@ -33,13 +34,15 @@ import PageFooter from './components/PageFooter.vue';
 import AgeVerification from './components/AgeVerification.vue';
 import { mapState } from 'pinia';
 import { useThemeStore } from './stores/themeStore';
+import TopButton from './components/TopButton.vue';
 
 export default {
   name: "App",
   components: {
     NavBar,
     PageFooter,
-    AgeVerification
+    AgeVerification,
+    TopButton
   },
   data() {
     return { backgroundImage: 'https://game.capcom.com/residentevil/pc/img/lineup/bg-lineup.jpg' ,

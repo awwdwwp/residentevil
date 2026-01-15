@@ -18,13 +18,6 @@
                 :class="{'selected-thumb':selected === char.id}"
                 @click="selected = char.id"
                 ></v-img>
-                <!-- <v-btn
-                class="ma-2"
-                :color="selected === char.id ? 'red' : 'grey'"
-                @click="selected = char.id"> 
-                
-                    {{ char.name }}
-                </v-btn> -->
             </v-slide-group-item>
         </v-slide-group>
 
@@ -99,7 +92,7 @@ export default {
     .selected-thumb {
         scale:1.1;
     filter:brightness(100%) !important;
-  border: 3px solid red;
+  border: 3px solid rgb(var(--v-theme-accent));
 }
 .character-card {
   background: #0a0a0a44; 
@@ -110,7 +103,6 @@ export default {
   padding-bottom:1.2rem;
   color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 9 8px 30px rgba(0, 0, 0, 0.7);
 }
 
 .character-card:hover {
@@ -122,7 +114,7 @@ export default {
  font-family: メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   font-weight: 900;
   font-size: 2.5rem !important;
-  color: #ffffff;
+  color: white;
   text-align: center;
   padding:0px !important;
   padding-bottom: 7px !important;
@@ -131,7 +123,7 @@ export default {
 
 .character-desc {
 font-family: 'Oswald', sans-serif;
-  background: rgb(255, 255, 255);
+  background: white;
   padding: 10px;
   border-radius: 0px;
   font-size: 0.95rem;
@@ -139,7 +131,7 @@ font-family: 'Oswald', sans-serif;
   line-height: 1.4;
   margin-top: 8px;
   text-align: justify;
-  color: #000000;
+  color: black;
 }
 .character-card:hover {
   box-shadow: 0 8px 25px rgba(255, 0, 0, 0.6), 0 0 15px rgba(255, 0, 0, 0.3) inset;

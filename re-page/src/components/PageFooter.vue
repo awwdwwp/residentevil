@@ -1,5 +1,5 @@
 <template>
-    <v-footer class="footer" padless>
+    <v-footer class="footer mt-13" padless>
         <v-container>
             <h3 class="footer-title">OFFICIAL CHANNELS</h3>
 
@@ -59,8 +59,14 @@ export default {
 
 <style scoped>
 .footer {
-  background: #050505;
+  background-color: black;
   color: white;
+  border-top: 1px solid grey;  
+}
+.v-container {
+  background: url('https://game.capcom.com/residentevil/pc/img/common/window.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .footer-title {
@@ -90,6 +96,7 @@ export default {
 .legal {
   margin-top: 20px;
   color: gray;
+  
 }
 
 .legal a {
@@ -99,5 +106,6 @@ export default {
 
 .capcom {
   margin-top: 20px;
+  
 }
 </style>

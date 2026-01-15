@@ -348,6 +348,18 @@ export const useHistoryStore = defineStore('history', {
   { release: "2/9/2024", platform: "PlayStation 4", title: "Resident Evil 4 Gold Edition" },
   { release: "2/9/2024", platform: "Steam", title: "Resident Evil 4 Gold Edition" }
 ]
+            },
+            {
+                year:2026,
+                title:'Resident Evil Requiem',
+                img1: '/logo_w.webp',
+                story: `A body has surfaced at an abandoned hotel in the Midwest, the latest in a mysterious string of deaths throughout the United States. FBI intelligence analyst Grace Ashcroft has been assigned to the case—in the same place where her mother was murdered eight years prior. But when word gets out that a police officer has gone missing at the hotel, veteran agent Leon S. Kennedy is also dispatched to the scene. As Grace and Leon's paths converge, they must face their pasts and uncover the truth behind the Raccoon City Incident that changed the world forever. But while the terrors of their memories echo in their minds, will they relive the nightmare...or finally offer up a requiem for the dead?`,
+                related: [
+                     { release: "2/27/2026", platform: "PS5", title: "Resident Evil Requiem" },
+                     { release: "2/27/2026", platform: "Xbox Series", title: "Resident Evil Requiem" },
+                     { release: "2/27/2026", platform: "Nintendo Switch 2", title: "Resident Evil Requiem" },
+                     { release: "2/27/2026", platform: "PC", title: "Resident Evil Requiem" }
+                ]
             }
         ] as HistoryEntry[]
     })

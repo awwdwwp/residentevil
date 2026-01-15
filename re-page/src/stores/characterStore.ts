@@ -58,11 +58,54 @@ export const useCharacterStore = defineStore('characterStore',{
           'https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/wesker2.webp'
         ],
         description: 'Former S.T.A.R.S. captain turned villain.'
-      }
+      },
+      {
+  id: 7,
+  name: 'Rebecca Chambers',
+  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/rebecca1.webp", 
+    "https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/rebecca2.webp"],
+  description: `I'm Rebecca! 😁`
+},
+{
+  id: 8,
+  name: 'Barry Burton',
+  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/barry1.webp", 
+    "https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/barry2.webp"],
+  description: 'Veteran S.T.A.R.S. member, expert in firearms and loyal to his team.'
+},
+{
+  id: 9,
+  name: 'Ethan Winters',
+  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/ethan1.webp",
+     "https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/ethan2.webp"],
+  description: 'Ordinary man drawn into the bioterror nightmare, protagonist of RE7 and RE8.'
+},
+{
+  id: 10,
+  name: 'Mia Winters',
+  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/mia1.webp",
+     "https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/mia2.webp"],
+  description: 'Ethan’s wife, entangled in the Baker family horrors and bioterror incidents.'
+},
+{
+  id: 11,
+  name: 'Grace Ashcroft',
+  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/grace1.webp", 
+    "https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/grace2.webp"],
+  description: 'Character involved in Resident Evil narratives, with mysterious and deadly motives.'
+},
+{
+  id: 12,
+  name: 'Sherry Birkin',
+  images: ["https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/sherry2.webp",
+    "https://raw.githubusercontent.com/awwdwwp/re_assets/refs/heads/main/sherry1.webp"
+    ],
+  description: 'Daughter of William and Annette Birkin, survivor of Raccoon City outbreaks.'
+}
     ] as Character[]
     }),
     getters: {
-        previewCharacters: (state) => state.characters.slice(0,4)
+        previewCharacters: (state) => state.characters.slice(0,3)
     },
     actions: {
         getCharacterById(id: number) {

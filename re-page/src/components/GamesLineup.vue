@@ -9,11 +9,11 @@
             md="4">
                 <v-card elevation="6"
                 class="game-card"
-                color="background"
+                color="surface"
                 @click="openOverlay(game)"
                 style="cursor:pointer;">
                     <v-img :src="game.image" height="220 cover"></v-img>
-                    <v-card-title color="secondary">{{game.title}}</v-card-title>
+                    <v-card-title>{{game.title}}</v-card-title>
                     <v-card-text>
                         <p class="mb-5">Available on:</p>
                         <div class="platforms">
@@ -34,7 +34,7 @@
     </div>
 
     <v-dialog v-model="overlay" max-width="800">
-        <v-card color="secondary">
+        <v-card color="surface">
             <v-card-title class="text-end">
                 <v-btn icon @click="closeOverlay">
                         <v-icon>mdi-close</v-icon>
@@ -147,10 +147,10 @@ export default {
 .v-dialog > .v-overlay__content > .v-card, .v-dialog > .v-overlay__content > form > .v-card {
     border: 1px rgba(255, 255, 255, 0.26) solid;
     border-radius: 0px;
-    background:linear-gradient(rgba(0, 0, 0, 0.89), rgb(0, 0, 0)) ;
+
 }
 .v-card .v-card-title {
-background-color: rgba(97, 2, 2, 0.705);
+ background-color: rgb(var(--v-theme-primary)) !important;
 margin-bottom: 13px;;
 }
 </style>

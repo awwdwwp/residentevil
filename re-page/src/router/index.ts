@@ -7,6 +7,7 @@ import CharactersView from '@/pages/CharactersView.vue'
 import CharactersList from '@/components/CharactersList.vue'
 import CharactersPresentation from '@/components/CharactersPresentation.vue'
 import HistoryView from '@/pages/HistoryView.vue'
+import NewsView from '@/pages/NewsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -46,6 +47,12 @@ const router = createRouter({
       component: HistoryView,
       meta: {title: 'History | Resident Evil Portal'}
     },
+    {
+      path:'/news/:category?',
+      name:'news',
+      component: NewsView,
+      meta: {title: 'News | Resident Evil Portal'}
+    }
   ]
 })
 

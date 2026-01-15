@@ -14,7 +14,9 @@
                 :key="item.year" class="history-row">
                 <div
                 
-                class="history-year">
+                class="history-year"
+                
+                >
                     {{ item.year }}
                 </div>
 
@@ -152,7 +154,7 @@ export default defineComponent({
 .history-year {
   font-size: 36px;
   font-weight: 900;
-  color: white;
+  
 }
 
 .history-center {
@@ -254,5 +256,8 @@ export default defineComponent({
   position: absolute;
   top: 16px;
   right: 16px;
+}
+.entry_img {
+  max-width: 250px !important;
 }
 </style>

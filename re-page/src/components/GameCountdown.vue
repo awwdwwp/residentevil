@@ -47,7 +47,7 @@
 
                 return {
                     days: Math.floor(totalSeconds / 86400),
-                    hours: Math.floor((totalSeconds % 864000) / 3600),
+                    hours: Math.floor((totalSeconds % 86400) / 3600),
                     minutes: Math.floor((totalSeconds % 3600) / 60),
                     seconds: totalSeconds % 60
                 }
@@ -55,15 +55,18 @@
             countdownUnits() {
                 return [
                     {label: 'Days', value:this.timeLeft.days},
-                    {label: 'Hours', value:this.timeLeft.hours},
-                    {label: 'Minutes', value:this.timeLeft.minutes},
-                    {label: 'Seconds', value:this.timeLeft.seconds}
+                    {label: 'Hours', value:this.pad(this.timeLeft.hours)},
+                    {label: 'Minutes', value:this.pad(this.timeLeft.minutes)},
+                    {label: 'Seconds', value:this.pad(this.timeLeft.seconds)}
                 ]
             }
         },
         methods: {
             updateTime() {
                 this.now = new Date()
+            },
+            pad(value:number): string {
+                return value.toString().padStart(2, '0')
             }
         },
         mounted() {

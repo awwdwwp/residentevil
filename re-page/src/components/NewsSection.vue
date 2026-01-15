@@ -8,18 +8,15 @@
         </div>
         <v-row>
             <v-col
-            v-for="item in news"
+            v-for="item in latestArticles"
             :key="item.id"
             cols="12"
             md="4">
             <v-card class="news-card" elevation="6">
-                <v-img :src="item.image" height="200" cover/>
+                <v-img :src="item.image" cover/>
                 <v-card-title>{{ item.title }}</v-card-title>
                 <v-card-text>
-                    <p class="news-text">
-                        {{ item.text }}
-                    </p>
-                    <small class="date">{{ item.date }}</small>
+                    <p class="date">{{ item.date }}</p>
                 </v-card-text>
                 <v-card-actions>
                     <v-btn variant="text" color="accent" @click="$router.push('/news')">
@@ -33,37 +30,15 @@
 </template>
 
 <script lang="ts">
+import { mapState } from 'pinia';
 import ThemedButton from './ThemedButton.vue';
+import { useNewsStore } from '@/stores/newsStore';
 
     export default {
         name:"NewsSection",
         components: {ThemedButton},
-        data() {
-            return {
-                news: [
-        {
-          id: 1,
-          title: "Resident Evil 4 Remake Wins Big",
-          text: "The remake continues to dominate awards and fan hearts.",
-          date: "Jan 2025",
-          image: "https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg"
-        },
-        {
-          id: 2,
-          title: "Village DLC Expands The Story",
-          text: "New horrors unfold with the latest DLC content.",
-          date: "Dec 2024",
-          image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/header.jpg"
-        },
-        {
-          id: 3,
-          title: "Resident Evil Requiem Is Coming Soon",
-          text: "Capcom brings new RE experience.",
-          date: "Nov 2024",
-          image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3764200/ce5437442768e38eb575f205ab9397d0264017b0/header.jpg?t=1765935688"
-        }
-      ]
-            }
+        computed: {
+            ...mapState(useNewsStore, ['latestArticles'])
         }
     }
 </script>

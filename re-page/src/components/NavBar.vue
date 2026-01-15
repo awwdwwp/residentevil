@@ -56,7 +56,7 @@ export default {
 }
 
 .nav-btn:hover {
-  color: #ff1b1b;
+  color: rgb(var(--v-theme-accent));
 }
 
 
